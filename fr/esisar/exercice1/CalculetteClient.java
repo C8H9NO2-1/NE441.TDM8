@@ -5,7 +5,7 @@ import java.rmi.registry.Registry;
 
 public class CalculetteClient {
     public static void main(String[] args) throws Exception {
-        Registry registry = LocateRegistry.getRegistry("127.0.0.1", 5050);
+        Registry registry = LocateRegistry.getRegistry("192.168.1.12", 5050);
 
         Calculette stub = (Calculette) registry.lookup("calculette");
 
@@ -15,6 +15,9 @@ public class CalculetteClient {
 
         int c = stub.somme(a, b);
 
+        int d = stub.difference(a, b);
+
         System.out.println("Le résultat est " + c);
+        System.out.println("Le résultat est " + d);
     }
 }

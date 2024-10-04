@@ -8,4 +8,10 @@ public class CalculetteImpl implements Calculette {
         int c = a + b;
         return c;
     }
+
+    public int difference(int a, int b) throws RemoteException {
+        System.out.println("Calcul de la différence entre " + a + " et " + b);
+        int c = a - b;
+        return c;
+    }
 }
