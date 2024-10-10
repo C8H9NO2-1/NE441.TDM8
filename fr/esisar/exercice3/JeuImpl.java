@@ -27,22 +27,27 @@ public class JeuImpl implements Jeu {
     public boolean prendrePion(int nombrePion, int numeroTas) throws RemoteException {
         // This method returns true if the player has won
         if (nombrePion > 3 || nombrePion <= 0) {
-            System.out.println("Le joueur ne sait pas jouer");
+            System.out.println("Il faut prendre un nombre de pion valide");
             return false;
         }
 
         if (numeroTas <= jeu.size() && numeroTas > 0) {
             int i = numeroTas - 1;
-            if (jeu.get(i) <= nombrePion) {
+            if (jeu.get(i) >= nombrePion) {
                 jeu.set(i, jeu.get(i) - nombrePion);
-                // TODO => Modify this part if we want more than one game in parallel
                 if (jeu.get(i) == 0) {
+                    System.out.println("Le joueur a gagné");
                     return true; // The player has won
                 }
+                System.out.println("La partie continue");
+                return false;
+            } else {
+                System.out.println("Il n'y a pas assez de pion");
+                return false;
             }
         }
 
-        System.out.println("Le joueur ne sait pas jouer");
+        System.out.println("Le tas numero " + numeroTas + " n'existe pas.");
         return false;
     }
 }
