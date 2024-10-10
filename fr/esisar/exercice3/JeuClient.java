@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class JeuClient {
     public static void main(String[] args) throws Exception {
-        Registry registry = LocateRegistry.getRegistry("192.168.1.12", 5050);
+        Registry registry = LocateRegistry.getRegistry("127.0.0.1", 5050);
 
         Jeu stub = (Jeu) registry.lookup("jeu");
 
